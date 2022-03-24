@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "13.5.0",
-    "firebase": "9.6.6",
+    "firebase": "^9.6.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "6",
@@ -37,5 +37,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "One quick note about cloning this project. If you wish to make commits and push your own code, you'll need to fork the project first. Forking allows you to have your own copy of this repository by adding a duplicate version in your own profile!",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sbaah/crwn-clothing-Version2.git"
+  },
+  "author": "sefa baah - acheamphour",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sbaah/crwn-clothing-Version2/issues"
+  },
+  "homepage": "https://github.com/Sbaah/crwn-clothing-Version2#readme"
 }
