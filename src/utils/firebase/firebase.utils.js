@@ -48,18 +48,18 @@ export const signInWithGoogleRedirect = ()=> signInWithRedirect(auth, provider);
 //  dat
 export const db = getFirestore();
 
-export const createUserDocumentFromAuth = async (userAuth) => {
+export const createUserDocumentFromAuth = async (
+  userAuth,
+  additionalInformation = {}
+  ) => {
   // use the user's uid to get a document refernce 
   const userDocRef = doc(db, 'users', userAuth.uid);
-
-  
-
   const userSnapshot = await getDoc(userDocRef);
 
 // if check id user data exists
 // create / set the document with the data from userAuth in my collection
   if (!userSnapshot.exists()) {
-    const { displayName, email,emailVerified } = userAuth;
+    const { displayName, email } = userAuth;
     const createdAt = new Date();
 
     try {
@@ -67,7 +67,7 @@ export const createUserDocumentFromAuth = async (userAuth) => {
         displayName,
         email,
         createdAt,
-        emailVerified
+        ...additionalInformation
       });
     } catch (error) {
       console.log('error creating the user', error.message);
@@ -93,5 +93,7 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async()=>{signOut(auth)};
 
+// will the call back when the authenication (sign/sign) changes.
+// it needs to be told to not listen anymore when the component unmunts
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
